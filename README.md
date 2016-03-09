@@ -19,6 +19,8 @@ var imageFilterColorize = require('image-colorize');
 
 var result = imageFilterColorize({
     data: IMAGE_DATA,
+    color: '#008080',
+    level: 50,
     asDataURL: true //if you want data to data transformation you don't need to include this
 });
 ```
