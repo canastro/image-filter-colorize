@@ -1,3 +1,6 @@
+![build status](https://travis-ci.org/canastro/image-filter-colorize.svg?branch=master)
+[![npm version](https://badge.fury.io/js/image-filter-colorize.svg)](https://badge.fury.io/js/image-filter-colorize)
+
 # image-colorize
 
 Small library to apply a colorize transformation to a image.
