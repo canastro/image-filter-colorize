@@ -1,4 +1,4 @@
-var imageFilterColorize = require('../src/index');
+import imageColorize from '../src/index';
 
 function applyResults(selector, src) {
     var target;
@@ -12,24 +12,24 @@ function applyResults(selector, src) {
 }
 
 window.onload = function () {
+    const img = new Image;
 
-    var img = new Image;
-    img.onload = function(){
-        var canvas = document.createElement('canvas');
+    img.onload = () => {
+        const canvas = document.createElement('canvas');
         canvas.width = img.width;
         canvas.height = img.height;
-        var context = canvas.getContext('2d');
-        context.drawImage(img,0,0);
+        const context = canvas.getContext('2d');
+        context.drawImage(img, 0, 0);
 
-        var data = context.getImageData(0, 0, img.width, img.height);
+        const data = context.getImageData(0, 0, img.width, img.height);
 
-        var results1 = imageFilterColorize({
+        imageColorize({
             data: data,
             color: '#008080',
-            level: 50,
-            asDataURL: true
+            level: 50
+        }).then((results) => {
+            applyResults('#target-1', results);
         });
-        applyResults('#target-1', results1);
     };
-    img.src = "dummy.jpg";
-}
+    img.src = 'dummy.jpg';
+};
